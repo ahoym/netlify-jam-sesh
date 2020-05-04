@@ -3,23 +3,35 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
+    "@types/aws-lambda": "^8.10.51",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.7",
+    "apollo-server-lambda": "^2.13.0",
+    "graphql": "^15.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "typescript": "^3.8.3"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.9.0",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.4",
     "@testing-library/user-event": "^10.1.0",
     "@types/jest": "^25.2.1",
     "@types/node": "^13.13.4",
-    "react-scripts": "3.4.1"
+    "netlify-lambda": "^1.6.3",
+    "npm-run-all": "^4.1.5",
+    "react-scripts": "3.4.1",
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "run-p start:**",
+    "start:fe": "react-scripts start",
+    "start:lambda": "netlify-lambda serve ./lambda --config lambda/webpack.functions.js",
+    "start:dev-lambda": "NODE_ENV=development netlify-lambda serve ./lambda --config lambda/webpack.functions.js",
+    "build": "run-p build:**",
+    "build:fe": "react-scripts build",
+    "build:lambda": "netlify-lambda build ./lambda --config lambda/webpack.functions.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
