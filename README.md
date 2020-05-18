@@ -1,3 +1,12 @@
+# Convenient Reference of Tech stuff
+
+- For graphql --> typescript types, use `graphql-code-generator`
+    - https://github.com/dotansimha/graphql-code-generator
+    - Plugins: https://graphql-code-generator.com/docs/plugins/index/
+- Setup up Postgres DB on heroku
+    - https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
