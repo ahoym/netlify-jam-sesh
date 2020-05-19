@@ -6,6 +6,27 @@
 - Setup up Postgres DB on heroku
     - https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1
 
+## `prisma` commands
+
+Migration: Save and Create DB
+
+```
+npx prisma migrate save --create-db --name init --experimental
+```
+
+Migration: up
+
+```
+npx prisma migrate up --experimental
+```
+
+Prisma studio: View tables/rows
+
+```
+npx prisma studio --experimental
+```
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
