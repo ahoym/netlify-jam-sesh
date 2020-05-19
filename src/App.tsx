@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import React from 'react';
 import './App.css';
+import { useAuth0 } from './auth/react-auth0-spa';
 import logo from './logo.svg';
 
 const HELLO_WORLD = gql`
@@ -41,6 +42,27 @@ function TestQuery() {
 }
 
 function App() {
+  const {
+    isAuthenticated,
+    loading,
+    logout,
+    loginWithRedirect,
+    user,
+  } = useAuth0();
+
+  if (loading) {
+    console.log('loading');
+    return <Loader />;
+  }
+
+  if (!isAuthenticated || !user) {
+    if (!user) console.log('No user found');
+    loginWithRedirect({ redirect_uri: window.location.origin });
+    return null;
+  }
+
+  if (user) console.log('User', user);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -57,6 +79,9 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={() => logout({ returnTo: window.location.origin })}>
+          Logout
+        </button>
       </header>
     </div>
   );
