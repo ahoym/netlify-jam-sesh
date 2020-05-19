@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
+    "@prisma/client": "^2.0.0-beta.5",
     "@types/aws-lambda": "^8.10.51",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
@@ -19,6 +20,7 @@
     "@babel/preset-typescript": "^7.9.0",
     "@graphql-codegen/cli": "^1.13.5",
     "@graphql-codegen/typescript": "^1.13.5",
+    "@prisma/cli": "^2.0.0-beta.5",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.4",
     "@testing-library/user-event": "^10.1.0",
