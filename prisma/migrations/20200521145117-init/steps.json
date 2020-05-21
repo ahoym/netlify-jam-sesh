@@ -31,7 +31,7 @@
       "tag": "CreateField",
       "model": "UserProfile",
       "field": "id",
-      "type": "Int",
+      "type": "String",
       "arity": "Required"
     },
     {
@@ -69,13 +69,6 @@
         },
         "directive": "id"
       }
-    },
-    {
-      "tag": "CreateField",
-      "model": "UserProfile",
-      "field": "bio",
-      "type": "String",
-      "arity": "Optional"
     },
     {
       "tag": "CreateField",
@@ -127,7 +120,7 @@
       "tag": "CreateField",
       "model": "UserProfile",
       "field": "userId",
-      "type": "Int",
+      "type": "String",
       "arity": "Required"
     },
     {
@@ -149,7 +142,7 @@
       "tag": "CreateField",
       "model": "User",
       "field": "id",
-      "type": "Int",
+      "type": "String",
       "arity": "Required"
     },
     {
@@ -219,6 +212,24 @@
       "field": "profile",
       "type": "UserProfile",
       "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "subId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "subId"
+        },
+        "directive": "unique"
+      }
     }
   ]
 }

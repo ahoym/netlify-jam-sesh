@@ -42,7 +42,10 @@
     "build:fe": "react-scripts build",
     "build:lambda": "netlify-lambda build ./lambda --config lambda/webpack.functions.js",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "db:save-migration": "prisma migrate save --experimental",
+    "db:up": "prisma migrate up --experimental",
+    "db:down": "prisma migrate down --experimental"
   },
   "eslintConfig": {
     "extends": "react-app"

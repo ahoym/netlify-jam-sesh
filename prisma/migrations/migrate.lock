@@ -3,5 +3,4 @@
 # Prisma Migrate lockfile v1
 # Read more about conflict resolution here: TODO
 
-20200518232716-init
-20200519175348-add-auth0-sub-id
+20200521145117-init
