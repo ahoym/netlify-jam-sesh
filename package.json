@@ -43,6 +43,7 @@
     "build:lambda": "netlify-lambda build ./lambda --config lambda/webpack.functions.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "db:generate-client": "prisma generate",
     "db:save-migration": "prisma migrate save --experimental",
     "db:up": "prisma migrate up --experimental",
     "db:down": "prisma migrate down --experimental"
