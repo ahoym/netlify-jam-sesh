@@ -120,7 +120,7 @@ const resolvers: Resolvers = {
 
       return createSuccessfulMutationResponse<User>({
         mutationName: 'getOrCreateUserFromAuthData',
-        payload: response,
+        payload: user,
       });
     },
   },
