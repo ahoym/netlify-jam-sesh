@@ -47,7 +47,8 @@
     "db:generate-client": "prisma generate",
     "db:save-migration": "prisma migrate save --experimental",
     "db:up": "prisma migrate up --experimental",
-    "db:down": "prisma migrate down --experimental"
+    "db:down": "prisma migrate down --experimental",
+    "db:studio": "prisma studio --experimental"
   },
   "eslintConfig": {
     "extends": "react-app"
