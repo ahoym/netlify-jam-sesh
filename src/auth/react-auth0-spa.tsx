@@ -74,7 +74,6 @@ export const Auth0Provider = ({
         const user = await auth0FromHook.getUser();
         setUser(user);
       }
-      console.log();
 
       setLoading(false);
     };

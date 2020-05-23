@@ -4,6 +4,7 @@ import React from 'react';
 import './App.css';
 import { useAuth0 } from './auth/react-auth0-spa';
 import logo from './logo.svg';
+import { useUser } from './contexts/user';
 
 const HELLO_WORLD = gql`
   {
@@ -22,7 +23,7 @@ function ErrorState() {
   return (
     <p>
       Something went wrong! Try again, and if the issue persists please contact
-      supprt.
+      support.
     </p>
   );
 }
@@ -42,32 +43,24 @@ function TestQuery() {
 }
 
 function App() {
-  const {
-    isAuthenticated,
-    loading,
-    logout,
-    loginWithRedirect,
-    user,
-  } = useAuth0();
+  const { isAuthenticated, loading, logout, loginWithRedirect } = useAuth0();
+  const user = useUser();
 
   if (loading) {
-    console.log('loading');
     return <Loader />;
-  }
-
-  if (!isAuthenticated || !user) {
-    if (!user) console.log('No user found');
+  } else if (!isAuthenticated) {
     loginWithRedirect({ redirect_uri: window.location.origin });
     return null;
+  } else if (!user) {
+    return null;
   }
-
-  if (user) console.log('User', user);
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <TestQuery />
+        <p>{user.name}</p>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
