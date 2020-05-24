@@ -2,7 +2,6 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'typeface-roboto';
 import App from './App';
 import { Auth0Provider } from './auth/react-auth0-spa';
 import { UserProvider } from './contexts/user';
