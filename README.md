@@ -11,6 +11,7 @@
 - [CRUD API reference](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/crud)
 - [Deploying to Netlify](https://www.prisma.io/docs/guides/deployment/deploying-to-netlify)
 - [Quick reference to relations](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/relations)
+- [Setup free Postgres DB on Heroku](https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1)
 
 
 Migration: Save and Create DB
@@ -30,6 +31,10 @@ Prisma studio: View tables/rows
 ```
 npx prisma studio --experimental
 ```
+
+## Auth0 Stuff
+
+- [Multilple Environments](https://auth0.com/docs/dev-lifecycle/setting-up-env#set-the-environment)
 
 # CRA Generated Stuff
 
