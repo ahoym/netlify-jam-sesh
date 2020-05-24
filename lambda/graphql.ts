@@ -1,5 +1,6 @@
 import { ApolloServer, gql } from 'apollo-server-lambda';
-import { MutationResponse, Resolvers, User } from '../src/types';
+import { Resolvers, User } from '../src/types';
+import { createSuccessfulMutationResponse } from './utils/normalization';
 import { prisma } from './utils/prisma-client';
 
 const typeDefs = gql`
@@ -61,35 +62,6 @@ const typeDefs = gql`
     ): GetOrCreateUserResponse
   }
 `;
-
-enum GRAPHQL_SUCCESS_CODES {
-  MUTATION_SUCCESS = 'MUTATION_SUCCESS',
-}
-
-type CreateMutationProps<T> = {
-  mutationName: string;
-  payload: T;
-  code?: string;
-  message?: string;
-  success?: boolean;
-};
-type MutationPayload<T> = { payload: T | null };
-type MutationResponseContract<T> = MutationResponse & MutationPayload<T>;
-
-function createSuccessfulMutationResponse<T = unknown>({
-  code,
-  message,
-  mutationName,
-  payload,
-}: CreateMutationProps<T>): MutationResponseContract<T> {
-  return {
-    payload,
-    success: true,
-    code: code || GRAPHQL_SUCCESS_CODES.MUTATION_SUCCESS,
-    message:
-      message || `Successfully performed GraphQL mutation: ${mutationName}`,
-  };
-}
 
 const resolvers: Resolvers = {
   Query: {
