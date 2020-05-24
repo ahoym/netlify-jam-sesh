@@ -1,3 +1,33 @@
+# Setup
+See the **Technologies** section for a high level overview of the libraries and services used in this template.
+
+1. Setup a netlify account
+1. Setup an auth0 account
+1. For your hosted db, set up an account at your preferred vendor. This template was built with a hosted DB at heroku.
+
+# Technologies
+This template uses various technologies. Specifics can be found in the tech's specific section. As a high level:
+
+- Netlify for hosting and deployment
+    - [Link](https://www.netlify.com/)
+- Create React App for frontend
+    - [Link](https://github.com/facebook/create-react-app)
+- Graphql (Apollo) as the specific client + (lambda) server technical implementation
+    - [Link for Apollo Client](https://www.apollographql.com/docs/react/get-started/)
+    - [Link for Apollo Server](https://www.apollographql.com/docs/apollo-server/getting-started/)
+- Netlify as a serverless layer through Netlify Functions (hosts the lambdas)
+    - [Specific Link for Apollo Lambda Server](https://www.apollographql.com/docs/apollo-server/deployment/lambda/)
+    - [Example Guide](https://www.apollographql.com/docs/apollo-server/deployment/netlify/)
+- Prisma as an easy ORM layer
+    - [Link](https://www.prisma.io/)
+- Auth0 as an identity managment solution
+    - [Link](https://auth0.com/)
+
+## Optional Technologies
+- Heroku to host a (Postgres) DB. However `prisma` can be configured to use any DB
+    - [Link](https://www.heroku.com/)
+    - [Setup free Postgres DB on Heroku](https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1)
+
 # Convenient Reference of Tech stuff
 
 - For graphql --> typescript types, use `graphql-code-generator`
