@@ -6,7 +6,12 @@
 - Setup up Postgres DB on heroku
     - https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1
 
-## `prisma` commands
+## `prisma` Stuff
+
+- [CRUD API reference](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/crud)
+- [Deploying to Netlify](https://www.prisma.io/docs/guides/deployment/deploying-to-netlify)
+- [Quick reference to relations](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/relations)
+
 
 Migration: Save and Create DB
 
