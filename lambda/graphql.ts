@@ -1,8 +1,7 @@
 import { ApolloServer, gql } from 'apollo-server-lambda';
 import { Resolvers, User } from '../src/types';
 import { createSuccessfulMutationResponse } from './utils/normalization';
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
+import { prisma } from './utils/prisma-client';
 
 const typeDefs = gql`
   interface MutationResponse {
