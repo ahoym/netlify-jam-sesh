@@ -6,22 +6,18 @@ async function main() {
     // const response = await prisma.user.findMany();
     const response = await prisma.user.findOne({
       where: {
-        subId: 'github|5249615',
+        subId: 'insert_auth0_sub_id_here',
       },
     });
-    console.log(response);
+
+    console.log('Prisma request succeeded', response);
     return response;
-  } catch (e) {
-    console.log('catching');
-    console.log(e);
+  } catch (error) {
+    console.log('Prisma request failed. Caught error', e);
     return e;
   }
 }
 
-main()
-  .catch((e) => {
-    throw e;
-  })
-  .finally(async () => {
-    await prisma.disconnect();
-  });
+main().finally(async () => {
+  await prisma.disconnect();
+});
