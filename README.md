@@ -7,11 +7,40 @@ See the **Technologies** section for a high level overview of the libraries and 
     - [Link](https://auth0.com/)
     - [Go through the register SPA flow](https://auth0.com/docs/dashboard/guides/applications/register-app-spa)
     - Get the new application's `Domain` and `Client ID` variables and insert them into their respective `.env` variables.
+        - The `.env` file is `.gitignore`d and will not be checked in. When deploying, set the environment variable in the Netlify GUI.
+    - (Recommended) Enable Github as a Social Connection, so devs can log into your app with their github account
+1. Create a prisma client `.env` file from the `prisma/.env.template` through:
+    - `cp prisma/.env.template prisma/.env`
 1. For your hosted db, set up an account at your preferred vendor. This template was built with a hosted DB at heroku.
     - [Link to Heroku](https://www.heroku.com/)
     - [Setup free Postgres DB on Heroku](https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1)
+    - From your remote DB settings, get the database URL and set it in the prisma `.env` file
+        - The `.env` file is `.gitignore`d and will not be checked in. When deploying, set the environment variable in the Netlify GUI.
 1. Setup a netlify account
     - [Link](https://www.netlify.com/)
+    - Allow automatic deploys from your project, set the following environment variables in the Netlify GUI
+        - `DATABASE_URL` (prisma `.env` file)
+        - `REACT_APP_AUTH0_CLIENT_ID` (root `.env` file)
+        - `REACT_APP_AUTH0_DOMAIN` (root `.env` file)
+
+# Developing
+
+2. Ensure all steps except for (Setup netlify account) of [Setup](#setup) are completed
+2. `yarn install`
+2. In one terminal tab/window, start the backend through:
+    - `yarn start dev:lambda`
+2. In another tab/window, start the frontend through:
+    - `yarn start`
+
+**Notes**
+- Easiest way is to sign up/in through github. Requires the "Github" social connection to be enabled in Auth0
+- Can view database records through `yarn db:studio`
+    - See [Prisma stuff](#prisma-stuff) for more database related commands/links to prisma documentation
+
+# For non-Development (Staging, Prod)
+- Use different auth0 tenants for developing vs actual staging vs prod
+- Use different DBs for developing vs actual staging vs prod
+- Netlify takes care of everything else deploy wise, but double check all env variables are isolated and are as expected
 
 # Technologies
 This template uses various technologies. Specifics can be found in the tech's specific section. As a high level:
@@ -72,7 +101,7 @@ npx prisma studio --experimental
 
 - [Multilple Environments](https://auth0.com/docs/dev-lifecycle/setting-up-env#set-the-environment)
 
-# CRA Generated Stuff
+# --- CRA Generated Stuff Below ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
