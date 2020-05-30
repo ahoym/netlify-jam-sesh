@@ -1,5 +1,5 @@
 # Setup
-See the **Technologies** section for a high level overview of the libraries and services used in this template.
+See the [Technologies](#technologies) section for a high level overview of the libraries and services used in this template.
 
 1. Create a web client (frontend) `.env` file from the `.env.template` through:
     - `cp .env.template .env`
