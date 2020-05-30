@@ -1,3 +1,26 @@
+Template that contains configuration for a full stack app with user authentication that is deploy ready through Netlify.
+
+# Technologies
+This template uses various technologies. Specifics can be found in each tech's specific section. As a high level:
+
+- Netlify for hosting and deployment
+- Create React App for frontend
+    - [Link](https://github.com/facebook/create-react-app)
+- Graphql (Apollo) as the specific client + (lambda) server technical implementation
+    - [Link for Apollo Client](https://www.apollographql.com/docs/react/get-started/)
+    - [Link for Apollo Server](https://www.apollographql.com/docs/apollo-server/getting-started/)
+- Netlify as a serverless layer through Netlify Functions (hosts the lambdas)
+    - [Specific Link for Apollo Lambda Server](https://www.apollographql.com/docs/apollo-server/deployment/lambda/)
+    - [Example Guide](https://www.apollographql.com/docs/apollo-server/deployment/netlify/)
+- Prisma as an ORM layer
+    - [Link](https://www.prisma.io/)
+- Auth0 as an identity managment solution
+
+## Optional Technologies
+- Heroku to host a (Postgres) DB. However `prisma` can be configured to use any DB.
+    - [Link](https://www.heroku.com/)
+    - [Setup free Postgres DB on Heroku](https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1)
+
 # Setup
 See the [Technologies](#technologies) section for a high level overview of the libraries and services used in this template.
 
@@ -41,27 +64,6 @@ See the [Technologies](#technologies) section for a high level overview of the l
 - Use different auth0 tenants for developing vs actual staging vs prod
 - Use different DBs for developing vs actual staging vs prod
 - Netlify takes care of everything else deploy wise, but double check all env variables are isolated and are as expected
-
-# Technologies
-This template uses various technologies. Specifics can be found in the tech's specific section. As a high level:
-
-- Netlify for hosting and deployment
-- Create React App for frontend
-    - [Link](https://github.com/facebook/create-react-app)
-- Graphql (Apollo) as the specific client + (lambda) server technical implementation
-    - [Link for Apollo Client](https://www.apollographql.com/docs/react/get-started/)
-    - [Link for Apollo Server](https://www.apollographql.com/docs/apollo-server/getting-started/)
-- Netlify as a serverless layer through Netlify Functions (hosts the lambdas)
-    - [Specific Link for Apollo Lambda Server](https://www.apollographql.com/docs/apollo-server/deployment/lambda/)
-    - [Example Guide](https://www.apollographql.com/docs/apollo-server/deployment/netlify/)
-- Prisma as an easy ORM layer
-    - [Link](https://www.prisma.io/)
-- Auth0 as an identity managment solution
-
-## Optional Technologies
-- Heroku to host a (Postgres) DB. However `prisma` can be configured to use any DB.
-    - [Link](https://www.heroku.com/)
-    - [Setup free Postgres DB on Heroku](https://dev.to/prisma/how-to-setup-a-free-postgresql-database-on-heroku-1dc1)
 
 # Convenient Reference of Tech stuff
 
