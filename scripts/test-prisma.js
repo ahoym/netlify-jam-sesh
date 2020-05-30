@@ -4,11 +4,18 @@ const prisma = new PrismaClient();
 async function main() {
   try {
     // const response = await prisma.user.findMany();
+
     const response = await prisma.user.findOne({
       where: {
         subId: 'insert_auth0_sub_id_here',
       },
     });
+
+    // const response = await prisma.user.delete({
+    //   where: {
+    //     subId: 'insert_auth0_sub_id_here',
+    //   },
+    // });
 
     console.log('Prisma request succeeded', response);
     return response;
