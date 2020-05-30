@@ -11,18 +11,11 @@ const typeDefs = gql`
     message: String!
   }
 
-  type UserProfile {
-    id: ID!
-    user: User
-    userId: String
-  }
-
   type User {
     id: ID!
     subId: String!
     email: String
     name: String
-    profile: UserProfile
   }
 
   type Auth0User {

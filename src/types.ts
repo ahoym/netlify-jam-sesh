@@ -18,24 +18,16 @@ export type MutationResponse = {
   message: Scalars['String'];
 };
 
-export type UserProfile = {
-   __typename?: 'UserProfile';
-  id: Scalars['ID'];
-  user?: Maybe<User>;
-  userId?: Maybe<Scalars['String']>;
-};
-
 export type User = {
-   __typename?: 'User';
+  __typename?: 'User';
   id: Scalars['ID'];
+  subId: Scalars['String'];
   email?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
-  profile?: Maybe<UserProfile>;
-  subId?: Maybe<Scalars['String']>;
 };
 
 export type Auth0User = {
-   __typename?: 'Auth0User';
+  __typename?: 'Auth0User';
   sub: Scalars['ID'];
   nickname: Scalars['String'];
   name: Scalars['String'];
@@ -57,15 +49,15 @@ export type GetUserInput = {
 };
 
 export type GetOrCreateUserResponse = MutationResponse & {
-   __typename?: 'GetOrCreateUserResponse';
+  __typename?: 'GetOrCreateUserResponse';
   code: Scalars['String'];
   success: Scalars['Boolean'];
   message: Scalars['String'];
-  payload: User;
+  payload?: Maybe<User>;
 };
 
 export type Query = {
-   __typename?: 'Query';
+  __typename?: 'Query';
   getUser?: Maybe<User>;
 };
 
@@ -75,8 +67,8 @@ export type QueryGetUserArgs = {
 };
 
 export type Mutation = {
-   __typename?: 'Mutation';
-  getOrCreateUserFromAuthData: GetOrCreateUserResponse;
+  __typename?: 'Mutation';
+  getOrCreateUserFromAuthData?: Maybe<GetOrCreateUserResponse>;
 };
 
 
@@ -166,9 +158,8 @@ export type ResolversTypes = {
   String: ResolverTypeWrapper<Scalars['String']>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   MutationResponse: ResolversTypes['GetOrCreateUserResponse'];
-  UserProfile: ResolverTypeWrapper<UserProfile>;
-  ID: ResolverTypeWrapper<Scalars['ID']>;
   User: ResolverTypeWrapper<User>;
+  ID: ResolverTypeWrapper<Scalars['ID']>;
   Auth0User: ResolverTypeWrapper<Auth0User>;
   GetOrCreateUserFromAuthDataInput: GetOrCreateUserFromAuthDataInput;
   GetUserInput: GetUserInput;
@@ -184,9 +175,8 @@ export type ResolversParentTypes = {
   String: Scalars['String'];
   Boolean: Scalars['Boolean'];
   MutationResponse: ResolversParentTypes['GetOrCreateUserResponse'];
-  UserProfile: UserProfile;
-  ID: Scalars['ID'];
   User: User;
+  ID: Scalars['ID'];
   Auth0User: Auth0User;
   GetOrCreateUserFromAuthDataInput: GetOrCreateUserFromAuthDataInput;
   GetUserInput: GetUserInput;
@@ -204,19 +194,11 @@ export type MutationResponseResolvers<ContextType = any, ParentType extends Reso
   message?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
-export type UserProfileResolvers<ContextType = any, ParentType extends ResolversParentTypes['UserProfile'] = ResolversParentTypes['UserProfile']> = {
-  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
-  user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
-  userId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  __isTypeOf?: isTypeOfResolverFn<ParentType>;
-};
-
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
+  subId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  profile?: Resolver<Maybe<ResolversTypes['UserProfile']>, ParentType, ContextType>;
-  subId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: isTypeOfResolverFn<ParentType>;
 };
 
@@ -232,7 +214,7 @@ export type GetOrCreateUserResponseResolvers<ContextType = any, ParentType exten
   code?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   success?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   message?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  payload?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
+  payload?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
   __isTypeOf?: isTypeOfResolverFn<ParentType>;
 };
 
@@ -241,7 +223,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
-  getOrCreateUserFromAuthData?: Resolver<ResolversTypes['GetOrCreateUserResponse'], ParentType, ContextType, RequireFields<MutationGetOrCreateUserFromAuthDataArgs, 'authData'>>;
+  getOrCreateUserFromAuthData?: Resolver<Maybe<ResolversTypes['GetOrCreateUserResponse']>, ParentType, ContextType, RequireFields<MutationGetOrCreateUserFromAuthDataArgs, 'authData'>>;
 };
 
 export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {
@@ -250,7 +232,6 @@ export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTyp
 
 export type Resolvers<ContextType = any> = {
   MutationResponse?: MutationResponseResolvers;
-  UserProfile?: UserProfileResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
   Auth0User?: Auth0UserResolvers<ContextType>;
   GetOrCreateUserResponse?: GetOrCreateUserResponseResolvers<ContextType>;

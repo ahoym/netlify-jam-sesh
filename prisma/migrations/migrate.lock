@@ -1,7 +1,5 @@
-# IF THERE'S A GIT CONFLICT IN THIS FILE, DON'T SOLVE IT MANUALLY!
-# INSTEAD EXECUTE `prisma migrate fix`
 # Prisma Migrate lockfile v1
-# Read more about conflict resolution here: TODO
 
 20200521145117-init
 20200521191544-optional-user-email
+20200530122459-drop-user-profile-table
