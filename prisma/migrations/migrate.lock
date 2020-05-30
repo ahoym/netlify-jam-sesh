@@ -1,5 +1,3 @@
 # Prisma Migrate lockfile v1
 
-20200521145117-init
-20200521191544-optional-user-email
-20200530122459-drop-user-profile-table
+20200530124018-initialize-db-with-user
