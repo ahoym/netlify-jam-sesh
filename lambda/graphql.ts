@@ -33,7 +33,6 @@ const typeDefs = gql`
   }
 
   input GetUserInput {
-    id: ID
     email: String
     name: String
     subId: String

@@ -42,7 +42,6 @@ export type GetOrCreateUserFromAuthDataInput = {
 };
 
 export type GetUserInput = {
-  id?: Maybe<Scalars['ID']>;
   email?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   subId?: Maybe<Scalars['String']>;
