@@ -1,4 +1,4 @@
-Template that contains configuration for a full stack app with user authentication that is deploy ready through Netlify.
+Template that contains configuration for a full stack [JAM stack](https://jamstack.org/) app with user authentication that is deploy ready through Netlify.
 
 # Technologies
 This template uses various technologies. Specifics can be found in each tech's specific section. As a high level:
