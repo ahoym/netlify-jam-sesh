@@ -31,6 +31,10 @@ See the [Technologies](#technologies) section for a high level overview of the l
     - [Go through the register SPA flow](https://auth0.com/docs/dashboard/guides/applications/register-app-spa)
     - Get the new application's `Domain` and `Client ID` variables and insert them into their respective `.env` variables.
         - The `.env` file is `.gitignore`d and will not be checked in. When deploying, set the environment variable in the Netlify GUI.
+    - In `Applications` > `Your Application` > `Application Settings` > `Application URIs`, set the following URLs to your domain or explicit domain routes:
+        - Allowed Callback URLs
+        - Allowed Logout URLs
+        - Allowed Web Origins
     - (Recommended) Enable Github as a Social Connection, so devs can log into your app with their github account
 1. Create a prisma client `.env` file from the `prisma/.env.template` through:
     - `cp prisma/.env.template prisma/.env`
@@ -49,6 +53,7 @@ See the [Technologies](#technologies) section for a high level overview of the l
 # Developing
 
 2. Ensure all steps except for (Setup netlify account) of [Setup](#setup) are completed
+    - Auth0 Application URLs for a development tenant can all be `http://localhost:3000` or your explicit domain route
 2. `yarn install`
 2. In one terminal tab/window, start the backend through:
     - `yarn start dev:lambda`
